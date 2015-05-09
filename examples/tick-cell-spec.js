@@ -1,12 +1,21 @@
 var test = require('tape');
 var tickCell = require('../lib/tick-cell');
 
-test('dead cell, 0 neighbors', function(t) {
-  t.equal(tickCell(0, 0), 0, '-> dead');
-  t.end();
-});
+var examples = [
+  [0, 0, 0],
+  [0, 1, 0],
+  [0, 2, 0],
+  [0, 3, 1],
+  [0, 4, 0],
+  [0, 8, 0]
+];
 
-test('dead cell, 1 neighbour', function(t) {
-  t.equal(tickCell(0, 1), 0, '-> dead');
-  t.end();
+examples.forEach(function(e) {
+  var testName = (e[0] ? 'Live ' : 'Dead ') +
+    'cell with ' + e[1] + ' neighbours';
+  var msg = '-> ' + e[2] ? 'live' : 'dead';
+  test(testName, function(t) {
+    t.equal(tickCell(e[0], e[1]), e[2], msg);
+    t.end();
+  });
 });
