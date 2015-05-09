@@ -1,0 +1,13 @@
+{
+  "name": "conway",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "tape ./examples/*-spec.js | tap-dot"
+  },
+  "author": "Jim Newbery <james@tinnedfruit.com> (http://tinnedfruit.com)",
+  "devDependencies": {
+    "tap-dot": "^1.0.0",
+    "tape": "^4.0.0"
+  }
+}
